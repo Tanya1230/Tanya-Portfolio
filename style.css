@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+}
+
+/* Fix for gap between Skills and Education */
+section {
+    padding: 5rem 9%;
+    margin-bottom: 0;
+}
+
+/* Remove margin-bottom from Skills to reduce gap */
+.skills {
+    margin-bottom: 0; /* Remove space between skills and education */
+}
+
+/* Home section alignment fix */
+/* Home Section with new design */
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    background-color: black;
+    padding: 10rem 9%; /* Added more padding for breathing space */
+    position: relative;
+    overflow: hidden;
+}
+
+.home .home-content {
+    max-width: 60%;
+    animation: fadeInUp 1s ease-out;
+}
+
+.home .home-content h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    color: #fff; /* Main heading in white for better contrast */
+    line-height: 1.2;
+    letter-spacing: 0.1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.home .home-content h1 span {
+    color: #b74b4b; /* Highlighted part in brand color */
+}
+
+.home .home-content p {
+    font-size: 2.4rem;
+    color: rgba(255, 255, 255, 0.8); /* Softer text for paragraph */
+    line-height: 1.8;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.home-img {
+    border-radius: 50%;
+    position: relative;
+    z-index: 10;
+    width: 35vw;
+    max-width: 400px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(183, 75, 75, 0.7); /* Stronger shadow for depth */
+    transition: transform 0.3s ease-in-out;
+}
+
+.home-img:hover {
+    transform: scale(1.05); /* Subtle hover effect */
+}
+
+.home-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Add some background elements for dynamic feel */
+.home::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.3), transparent);
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design for smaller screens */
+@media(max-width: 995px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 8rem 5%;
+        gap: 4rem;
+    }
+
+    .home .home-content {
+        max-width: 100%;
+    }
+
+    .home .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home .home-content p {
+        font-size: 2rem;
+    }
+
+    .home-img {
+        width: 70vw;
+        max-width: none;
+    }
+}
+
+
+/* Navigation updates */
+header {
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    z-index: 100;
+}
+
+nav a {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent; /* Remove default underline */
+}
+
+nav a:hover,
+nav a.active:hover { /* Only highlight on hover */
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+/* No active underline for Home by default */
+nav a.active {
+    color: white; /* Keep normal color, no underline */
+    border-bottom: 3px solid transparent; /* No underline */
+}
+
+@media(max-width:995px) {
+    nav {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active:hover {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Skills Section */
+.skills {
+    padding: 6rem 9%;
+    background-color: #101010;
+    color: white;
+    border-left: 5px solid #b74b4b;
+    margin-bottom: 4rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    color: #b74b4b;
+    text-transform: uppercase;
+    text-shadow: 0px 3px 10px rgba(183, 75, 75, 0.7);
+}
+
+.skill-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.skill-item {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 3px solid #b74b4b;
+    color: white;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 1rem;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(183, 75, 75, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skill-item {
+        width: 120px;
+        height: 120px;
+        font-size: 1.4rem;
+    }
+}
+
+
+
+/* For Education and Experience Sections */
+/* Education Section */
+.education {
+    padding: 6rem 9%;
+    background-color: #101010;
+    color: white;
+    border-left: 5px solid #b74b4b;
+    margin-bottom: 4rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.education h2 {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    color: #b74b4b;
+    text-transform: uppercase;
+    text-shadow: 0px 3px 10px rgba(183, 75, 75, 0.7);
+}
+
+.edu-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    border-left: 3px solid #b74b4b;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 0 30px rgba(183, 75, 75, 0.5);
+}
+
+.edu-item h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-shadow: 0px 2px 8px rgba(183, 75, 75, 0.6);
+}
+
+.edu-institution {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    text-shadow: 0px 1px 5px rgba(183, 75, 75, 0.5);
+}
+
+.edu-detail {
+    font-weight: bold;
+    color: #b74b4b;
+    font-size: 2rem;
+}
+
+.education p {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Experience Section */
+.experience {
+    padding: 6rem 9%;
+    background-color: #101010;
+    color: white;
+    border-left: 5px solid #b74b4b;
+    margin-bottom: 4rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.experience h2 {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    color: #b74b4b;
+    text-transform: uppercase;
+    text-shadow: 0px 3px 10px rgba(183, 75, 75, 0.7);
+}
+
+.exp-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    border-left: 3px solid #b74b4b;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 0 30px rgba(183, 75, 75, 0.5);
+}
+
+.exp-item h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-shadow: 0px 2px 8px rgba(183, 75, 75, 0.6);
+}
+
+.exp-institution {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    text-shadow: 0px 1px 5px rgba(183, 75, 75, 0.5);
+}
+
+.exp-detail {
+    font-weight: bold;
+    color: #b74b4b;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.experience p {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Contact Section */
+.contact {
+    padding: 6rem 9%;
+    background-color: #101010;
+    color: white;
+    border-left: 5px solid #b74b4b;
+    margin-bottom: 4rem;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    color: #b74b4b;
+    text-transform: uppercase;
+    text-shadow: 0px 3px 10px rgba(183, 75, 75, 0.7);
+}
+
+.contact-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.contact-card {
+    width: 350px;
+    padding: 3rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #b74b4b;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.contact-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 8px rgba(183, 75, 75, 0.6);
+}
+
+.contact-card p {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-card a {
+    color: #b74b4b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: white;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(183, 75, 75, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-card {
+        width: 100%;
+        padding: 2rem;
+    }
+}
+
+/* Add some padding to the sections */
+section {
+    padding: 6rem 9%;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
